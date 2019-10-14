@@ -90,7 +90,7 @@ PreparedStatement pst = null;
         jPanel1.add(jLabel4);
         jLabel4.setBounds(30, 440, 80, 14);
 
-        txt_combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Customer" }));
+        txt_combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Guest" }));
         txt_combo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_comboActionPerformed(evt);

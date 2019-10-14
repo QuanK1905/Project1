@@ -1,16 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package project1;
 import java.sql.*;
 import javax.swing.*;
 import javax.swing.JOptionPane;
-/**
- *
- * @author Quan
- */
+
 public class db {
     
     Connection conn = null;
@@ -20,7 +13,7 @@ public class db {
         try{
             
             Class.forName("org.sqlite.JDBC");
-            Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Quan\\Documents\\NetBeansProjects\\Project1\\database.db");
+            Connection conn = DriverManager.getConnection("jdbc:sqlite:database.db");
             return conn ;
            
         
