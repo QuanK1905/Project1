@@ -46,10 +46,10 @@ PreparedStatement pst = null;
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txt_username = new javax.swing.JTextField();
-        txt_password = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         txt_combo = new javax.swing.JComboBox<>();
+        txt_password = new javax.swing.JPasswordField();
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -77,14 +77,6 @@ PreparedStatement pst = null;
         jPanel1.add(txt_username);
         txt_username.setBounds(140, 350, 150, 30);
 
-        txt_password.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_passwordActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txt_password);
-        txt_password.setBounds(140, 390, 150, 30);
-
         jButton1.setText("Login");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,6 +98,14 @@ PreparedStatement pst = null;
         });
         jPanel1.add(txt_combo);
         txt_combo.setBounds(140, 430, 150, 30);
+
+        txt_password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_passwordActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txt_password);
+        txt_password.setBounds(140, 390, 150, 30);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project1/image/background-dinas-pendidikan-1.png"))); // NOI18N
         jLabel6.setText("jLabel6");
@@ -129,10 +129,6 @@ PreparedStatement pst = null;
     private void txt_usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_usernameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_usernameActionPerformed
-
-    private void txt_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_passwordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_passwordActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
@@ -189,6 +185,10 @@ PreparedStatement pst = null;
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_comboActionPerformed
 
+    private void txt_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_passwordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_passwordActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -233,7 +233,7 @@ PreparedStatement pst = null;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JComboBox<String> txt_combo;
-    private javax.swing.JTextField txt_password;
+    private javax.swing.JPasswordField txt_password;
     private javax.swing.JTextField txt_username;
     // End of variables declaration//GEN-END:variables
 }
