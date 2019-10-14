@@ -20,11 +20,12 @@ public class db {
         try{
             
             Class.forName("org.sqlite.JDBC");
-            Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Quan\\Documents\\NetBeansProjects\\Project1\\database.sqlite");
-            return conn;
+            Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Quan\\Documents\\NetBeansProjects\\Project1\\database.db");
+            return conn ;
+           
         
-        }catch  (Exception e){
-            JOptionPane.showMessageDialog(null,e);
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, e);
             return null;
         }
     }
