@@ -57,17 +57,20 @@ PreparedStatement pst = null;
 
         jPanel1.setLayout(null);
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Enter your Username and Password: ");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(60, 304, 300, 30);
+        jLabel1.setBounds(70, 294, 290, 40);
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Username");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(28, 360, 80, 14);
+        jLabel2.setBounds(28, 360, 80, 15);
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setText("Password");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(30, 400, 80, 14);
+        jLabel3.setBounds(30, 400, 80, 15);
 
         txt_username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,17 +81,19 @@ PreparedStatement pst = null;
         txt_username.setBounds(140, 350, 150, 30);
 
         jButton1.setText("Login");
+        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(190, 470, 100, 23);
+        jButton1.setBounds(190, 470, 100, 30);
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setText("Division");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(30, 440, 80, 14);
+        jLabel4.setBounds(30, 440, 80, 15);
 
         txt_combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Guest" }));
         txt_combo.addActionListener(new java.awt.event.ActionListener() {
