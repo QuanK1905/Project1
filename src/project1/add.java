@@ -5,17 +5,32 @@
  */
 package project1;
 
+
+import java.awt.*;
+import java.awt.Desktop;  
+import java.io.*;  
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Quan
  */
 public class add extends javax.swing.JFrame {
-
-    /**
-     * Creates new form add
-     */
+Connection conn=null;
+ResultSet rs=null;
+PreparedStatement pst=null;
+    
     public add() {
         initComponents();
+        conn=db.java_db();
+        Toolkit toolkit = getToolkit();
+        Dimension size = toolkit.getScreenSize();
+        setLocation(size.width/2 - getWidth()/2, 
+        size.height/2 - getHeight()/2);
     }
 
     /**
@@ -27,25 +42,210 @@ public class add extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txt_Name = new javax.swing.JTextField();
+        txt_Date = new javax.swing.JTextField();
+        txt_Author = new javax.swing.JTextField();
+        txt_Type = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(51, 255, 255));
+        setPreferredSize(new java.awt.Dimension(500, 456));
+        setResizable(false);
+
+        txt_Name.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_NameActionPerformed(evt);
+            }
+        });
+
+        txt_Date.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_DateActionPerformed(evt);
+            }
+        });
+
+        txt_Author.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_AuthorActionPerformed(evt);
+            }
+        });
+
+        txt_Type.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_TypeActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel2.setText("Tên:");
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel3.setText("Năm XB:");
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel4.setText("Tác giả:");
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel5.setText("Chủ đề:");
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project1/image/Save-icon.png"))); // NOI18N
+        jButton1.setText("Thêm tài liệu");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project1/image/update icon.png"))); // NOI18N
+        jButton2.setText("Làm mới");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jPanel1.setLayout(null);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(121, 121, 121)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5))
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txt_Date, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
+                            .addComponent(txt_Name)
+                            .addComponent(txt_Author, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txt_Type)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(172, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 457, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txt_Date, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_Author, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(txt_Type, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(jButton1))
+                .addGap(73, 73, 73))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+            JFileChooser dialog = new JFileChooser();
+            int dialogResult = dialog.showSaveDialog(null);
+            if (dialogResult==JFileChooser.APPROVE_OPTION){
+            String filePath = dialog.getSelectedFile().getPath();
+        int p = JOptionPane.showConfirmDialog(null, "Thêm tài liệu?","Thêm tài liệu",JOptionPane.YES_NO_OPTION);
+        if(p==0){
+
+            try {
+                String sql ="insert into Document " 
+                        + "(Name,Date,Author,Type,Link) values (?,?,?,?,?) ";
+
+                pst=conn.prepareStatement(sql);
+                pst.setString(1,txt_Name.getText());
+                pst.setString(2,txt_Date.getText());
+                pst.setString(3,txt_Author.getText());
+                pst.setString(4,txt_Type.getText());
+                pst.setString(5,filePath);
+                
+                pst.execute();
+                JOptionPane.showMessageDialog(null,"Dữ liệu được lưu thành công");
+
+            }
+            catch (Exception e)
+
+            {
+                JOptionPane.showMessageDialog(null,e);
+            }
+            
+            finally {
+                
+                try{
+                    rs.close();
+                    pst.close();
+                }
+            
+              catch(Exception e){
+                      JOptionPane.showMessageDialog(null,e);
+                    }
+        
+        
+        }
+
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+            }
+    }
+    private void txt_AuthorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_AuthorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_AuthorActionPerformed
+
+    private void txt_DateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_DateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_DateActionPerformed
+
+    private void txt_TypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_TypeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_TypeActionPerformed
+
+    private void txt_NameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_NameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_NameActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+        txt_Name.setText("");
+        txt_Date.setText("");
+        txt_Author.setText("");
+        txt_Type.setText("");
+       
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -79,5 +279,19 @@ public class add extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField txt_Author;
+    private javax.swing.JTextField txt_Date;
+    private javax.swing.JTextField txt_Name;
+    private javax.swing.JTextField txt_Type;
     // End of variables declaration//GEN-END:variables
+    
+
+
 }

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package project1;
 
 import java.awt.Dimension;
@@ -155,13 +151,13 @@ PreparedStatement pst = null;
             
             if(access =="Admin"){
                 if(count ==1){
-                    JOptionPane.showMessageDialog(null, "Success");
+                    JOptionPane.showMessageDialog(null, "Dang nhap thanh cong");
                     MainMenu j = new MainMenu();
                     j.setVisible(true);
                     this.dispose();
                     
                 }else{
-                    JOptionPane.showMessageDialog(null, "Username and Password are wrong !");
+                    JOptionPane.showMessageDialog(null, "Ten dang nhap hoac mat khau khong chinh xac");
                 }
             }
             
@@ -186,13 +182,13 @@ PreparedStatement pst = null;
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void txt_comboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_comboActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_comboActionPerformed
-
     private void txt_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_passwordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_passwordActionPerformed
+
+    private void txt_comboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_comboActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_comboActionPerformed
 
     /**
      * @param args the command line arguments
