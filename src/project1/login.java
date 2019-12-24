@@ -26,8 +26,40 @@ PreparedStatement pst = null;
         Dimension size = toolkit.getScreenSize();
         setLocation(size.width/2 - getWidth()/2,size.height/2 - getHeight()/2);
         conn = db.java_db();
+        
+        
+        
+        String sql1 ="CREATE TABLE Document (\n" +
+"    ID     INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
+"    Name   VARCHAR NOT NULL,\n" +
+"    Date   INTEGER,\n" +
+"    Author VARCHAR,\n" +
+"    Type   VARCHAR NOT NULL,\n" +
+"    Link   STRING\n" +
+")" ;
+        String sql2 ="CREATE TABLE Users (\n" +
+"    ID     INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
+"    username   VARCHAR NOT NULL,\n" +
+"    password VARCHAR, \n" +
+"    division VARCHAR \n" +
+")" ;
+        String sql3 ="INSERT INTO Users (ID, username, password, division)\n" +
+"VALUES (1, 'admin', '123', 'Admin')";
+        
+        try {
+       conn.createStatement().executeUpdate(sql1);
+        } catch(Exception e){};
+        try {
+       conn.createStatement().executeUpdate(sql2);
+        } catch(Exception e){};
+        try {
+       conn.createStatement().executeUpdate(sql3);
+        } catch(Exception e){};
     }
 
+    
+     
+        
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -132,9 +164,9 @@ PreparedStatement pst = null;
     }//GEN-LAST:event_txt_usernameActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+          
 
-
-        String sql ="select id,username,password,division from Users where (username =? and password =? and division =?)";
+        String sql ="select ID,username,password,division from Users where (username =? and password =? and division =?)";
         try{        
             int count = 0;
             pst = conn.prepareStatement(sql);
